@@ -35,6 +35,7 @@ public class cyber extends javax.swing.JFrame {
     int num;
     int precioHr = 10;
     int contProd = 0,contTotal = 0;
+    static int tiempo = 0;
 
     
 
@@ -1020,7 +1021,7 @@ public class cyber extends javax.swing.JFrame {
         );
 
         VENTA.getContentPane().add(jPanel4);
-        jPanel4.setBounds(10, 80, 300, 174);
+        jPanel4.setBounds(10, 80, 300, 0);
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ciber/cafe1.png"))); // NOI18N
         VENTA.getContentPane().add(jLabel32);
@@ -2087,6 +2088,7 @@ public class cyber extends javax.swing.JFrame {
         S.limpiartabla(modeloTabla);
        String sql = "SELECT * FROM equipos";
        S.Mostrarconsultas(modeloTabla, sql);
+       cliente cli = new cliente();
     }//GEN-LAST:event_guardarActionPerformed
 
     public String H_inicio() {
@@ -2150,7 +2152,7 @@ public class cyber extends javax.swing.JFrame {
     }
 
     public float monto() {
-        float monto,med;
+        float monto = 0,med = 0;
         int h, m, s, h2, m2, s2, hh, mm, ss, hf, mf, sf;
         h = Integer.parseInt(hora1.getSelectedItem().toString());
         m = Integer.parseInt(min1.getSelectedItem().toString());
@@ -2181,20 +2183,33 @@ public class cyber extends javax.swing.JFrame {
         sf = ss / 3600;
         
         double media = 0;
-        if(mm>30){
+        if(mm>2 && m<31){
             med = (float) (hh + 0.5);
             monto = med * precioHr;
         System.out.println(hf+" "+mf+" "+sf);
-        }else{
-            monto = (hf + mf + sf) * precioHr;
-            System.out.println(hf+" "+mf+" "+sf);
+        }
+        if(mm>30 && mm<59){
+            monto = (hh+1) * precioHr;
         }
 
+        if(mm==0 || mm==1 || mm == 2){
+            monto = (hf + mf + sf) * precioHr;
+            System.out.println(hf+" "+mf+" "+sf);
+        } 
+        
         
 
         System.out.println("Horas de renta= " + hh + ":" + mm + ":" + ss);
-        System.out.println("Monto a pagar: $" + monto);
+        tiempo = segundos(hh,mm,ss);
+        //System.out.println("Monto a pagar: $" + monto);
         return monto;
+    }
+    public int segundos(int h,int m,int s){
+        int t,hh,mm;  
+        hh=h*3600;
+        mm=m*60;
+        t=hh+mm+s;
+     return t;  
     }
 
     private void exit7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit7ActionPerformed
@@ -2268,6 +2283,7 @@ public class cyber extends javax.swing.JFrame {
             S.limpiartabla(modeloTabla);
             String sql = "SELECT * FROM equipos";
             S.Mostrarconsultas(modeloTabla, sql);
+            cliente cli = new cliente();
         }
     }//GEN-LAST:event_OK1ActionPerformed
 

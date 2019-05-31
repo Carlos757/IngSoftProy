@@ -1,3 +1,4 @@
+
 package ciber;
 
 import java.sql.Connection;
@@ -243,7 +244,7 @@ public class Metodos {
             us.executeUpdate();
             
             System.out.println("Estado del equipo cambiado a 'Espera'");
-            JOptionPane.showMessageDialog(null, "!ESTADO DEL EQUIPO CAMBIADO¡");
+            //JOptionPane.showMessageDialog(null, "!ESTADO DEL EQUIPO CAMBIADO¡");
             
         } catch (SQLException e) {
             System.out.println("Error al cambiar estado: " + e);
@@ -308,6 +309,7 @@ public class Metodos {
         }
     }
 }
+
 
 
 
