@@ -13,9 +13,9 @@ public class conexion {
         Connection con = null;
     public Connection conex (){
         try{
-        String ip = "127.0.0.1";   //Aqui va la ip de la pc con el servidor
+        String ip = "192.168.50.64";   //Aqui va la ip de la pc con el servidor
         Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://"+ip+"/ciber","root","");
+        con= DriverManager.getConnection("jdbc:mysql://"+ip+"/ciber","root","hola");
             System.out.println("Conexion establecida");
         }catch(Exception e){
             System.out.println("Error: "+e.getMessage());
@@ -23,6 +23,9 @@ public class conexion {
         return con;
     }
 }
+
+
+
 
 
 

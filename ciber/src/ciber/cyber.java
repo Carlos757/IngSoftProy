@@ -36,6 +36,7 @@ public class cyber extends javax.swing.JFrame {
     int precioHr = 10;
     int contProd = 0,contTotal = 0;
     static int tiempo = 0;
+    public static int ganancias = 0;
 
     
 
@@ -49,7 +50,7 @@ public class cyber extends javax.swing.JFrame {
         RENTA.setLocationRelativeTo(null);
         VENTA.setSize(470, 620);
         VENTA.setLocationRelativeTo(null);
-        REPORTE_CLIENTE.setSize(445, 385);
+        REPORTE_CLIENTE.setSize(730, 570);
         REPORTE_CLIENTE.setLocationRelativeTo(null);
         AGREGA_E.setSize(435, 550);
         AGREGA_E.setLocationRelativeTo(null);
@@ -195,15 +196,22 @@ public class cyber extends javax.swing.JFrame {
         fondo_venta = new javax.swing.JLabel();
         REPORTE_CLIENTE = new javax.swing.JFrame();
         exit10 = new javax.swing.JButton();
-        hecho = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabla_join = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         tabla_join2 = new javax.swing.JTable();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        txtGanancias1 = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        txtGanancias2 = new javax.swing.JTextField();
         titulo_reporte = new javax.swing.JLabel();
+        comboMostrar = new javax.swing.JComboBox<>();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        usuarioRR = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         buttonGroup3 = new javax.swing.ButtonGroup();
@@ -1021,7 +1029,7 @@ public class cyber extends javax.swing.JFrame {
         );
 
         VENTA.getContentPane().add(jPanel4);
-        jPanel4.setBounds(10, 80, 300, 0);
+        jPanel4.setBounds(10, 80, 300, 174);
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ciber/cafe1.png"))); // NOI18N
         VENTA.getContentPane().add(jLabel32);
@@ -1171,42 +1179,25 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         REPORTE_CLIENTE.getContentPane().add(exit10);
-        exit10.setBounds(360, 0, 50, 30);
+        exit10.setBounds(680, 0, 50, 30);
 
-        hecho.setBackground(new java.awt.Color(255, 255, 255));
-        hecho.setForeground(new java.awt.Color(255, 255, 255));
-        hecho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hecho.png"))); // NOI18N
-        hecho.setBorder(null);
-        hecho.setBorderPainted(false);
-        hecho.setContentAreaFilled(false);
-        hecho.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        hecho.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        hecho.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hecho1.png"))); // NOI18N
-        hecho.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hecho2.png"))); // NOI18N
-        hecho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hechoActionPerformed(evt);
-            }
-        });
-        REPORTE_CLIENTE.getContentPane().add(hecho);
-        hecho.setBounds(140, 60, 70, 40);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
+        tabla_join.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tabla_join.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID Cliente", "ID Renta", "Fecha Renta", "ID Venta", "Fecha Venta"
+                "ID", "Fecha", "Hora Inicio", "Hora Fin", "PC", "Monto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1221,16 +1212,17 @@ public class cyber extends javax.swing.JFrame {
             tabla_join.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
+        tabla_join2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tabla_join2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Cliente", "ID Renta", "Fecha Renta", "ID Venta", "Fecha Venta"
+                "ID", "ID Producto", "Producto", "Fecha", "Cantidad", "Monto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1245,6 +1237,23 @@ public class cyber extends javax.swing.JFrame {
             tabla_join2.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
+        jLabel55.setText("Productos");
+
+        jLabel56.setText("Rentas de equipo");
+
+        jLabel58.setText("Ganancias :");
+
+        txtGanancias1.setText("jTextField1");
+        txtGanancias1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGanancias1ActionPerformed(evt);
+            }
+        });
+
+        jLabel59.setText("Ganancias :");
+
+        txtGanancias2.setText("jTextField2");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1252,46 +1261,95 @@ public class cyber extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel59)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtGanancias1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtGanancias2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel56)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel58)
+                            .addComponent(txtGanancias2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtGanancias1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel59))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         REPORTE_CLIENTE.getContentPane().add(jPanel6);
-        jPanel6.setBounds(10, 140, 390, 230);
+        jPanel6.setBounds(20, 160, 680, 380);
 
         titulo_reporte.setBackground(new java.awt.Color(255, 0, 0));
         titulo_reporte.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        titulo_reporte.setForeground(new java.awt.Color(255, 0, 51));
+        titulo_reporte.setForeground(new java.awt.Color(255, 255, 255));
         titulo_reporte.setText("ACCIÓN A REALIZAR:");
         REPORTE_CLIENTE.getContentPane().add(titulo_reporte);
         titulo_reporte.setBounds(0, 0, 330, 24);
 
+        comboMostrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "Ultima Semana", "Ultimo Mes", "Ultimo Año" }));
+        comboMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboMostrarActionPerformed(evt);
+            }
+        });
+        REPORTE_CLIENTE.getContentPane().add(comboMostrar);
+        comboMostrar.setBounds(110, 130, 150, 22);
+
+        jLabel54.setFont(new java.awt.Font("Malgun Gothic", 0, 36)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setText("Reporte de ventas");
+        REPORTE_CLIENTE.getContentPane().add(jLabel54);
+        jLabel54.setBounds(20, 30, 330, 100);
+
+        jLabel57.setFont(new java.awt.Font("Malgun Gothic", 0, 18)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel57.setText("Mostrar :");
+        REPORTE_CLIENTE.getContentPane().add(jLabel57);
+        jLabel57.setBounds(20, 130, 110, 25);
+
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinta.png"))); // NOI18N
         jLabel51.setText("jLabel33");
         REPORTE_CLIENTE.getContentPane().add(jLabel51);
-        jLabel51.setBounds(-10, 0, 370, 30);
-
-        usuarioRR.setFont(new java.awt.Font("OCR-B 10 BT", 1, 14)); // NOI18N
-        usuarioRR.setForeground(new java.awt.Color(255, 255, 255));
-        usuarioRR.setText("USUARIO: ");
-        REPORTE_CLIENTE.getContentPane().add(usuarioRR);
-        usuarioRR.setBounds(0, 40, 200, 19);
+        jLabel51.setBounds(-10, 0, 690, 30);
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ciber/document.png"))); // NOI18N
         REPORTE_CLIENTE.getContentPane().add(jLabel26);
-        jLabel26.setBounds(300, 30, 100, 105);
+        jLabel26.setBounds(570, 50, 100, 105);
 
-        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_reporte.png"))); // NOI18N
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAzul.jpg"))); // NOI18N
         jLabel50.setText("}");
         jLabel50.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -1299,7 +1357,7 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         REPORTE_CLIENTE.getContentPane().add(jLabel50);
-        jLabel50.setBounds(0, 0, 410, 380);
+        jLabel50.setBounds(0, 0, 730, 570);
 
         EMPLEADOS.setTitle("EMPLEADOS");
         EMPLEADOS.setUndecorated(true);
@@ -1992,25 +2050,24 @@ public class cyber extends javax.swing.JFrame {
         } else if (reporte.isSelected()) {
             S.limpiartabla(modelotabla3);
             S.limpiartabla(modelotabla5);
-            idCliente = JOptionPane.showInputDialog(null, "INGRESE EL ID DEL CLIENTE:", "REPORTE DE CLIENTES. ID CLIENTE", 1);
-            try {
-                if ((JOptionPane.CANCEL_OPTION == -1) || (idCliente.isEmpty())) {
-                    JOptionPane.showMessageDialog(null, "¡AGREGUE EL ID DEL CLIENTE!");
-                } else {
+            comboMostrar.setSelectedIndex(0);
+            //idCliente = JOptionPane.showInputDialog(null, "INGRESE EL ID DEL CLIENTE:", "REPORTE DE CLIENTES. ID CLIENTE", 1);
+            //try {
+                //if ((JOptionPane.CANCEL_OPTION == -1) || (idCliente.isEmpty())) {
+                  //  JOptionPane.showMessageDialog(null, "¡AGREGUE EL ID DEL CLIENTE!");
+                //} else {
                     //idrenta se utiliza para buscar los datos de un cliente ya registrado
-                    sql = "SELECT Clientes.idClientes, idRentas, Fecha_R, idVentas, Fecha_V FROM clientes, rentas, ventas "
-                            + "WHERE clientes.idClientes=" + idCliente + " AND rentas.idClientes=clientes.idClientes AND clientes.idClientes=ventas.idClientes";
-                    sql2 = "SELECT Clientes.idClientes, idRentas, Fecha_R, idVentas, Fecha_V FROM clientes, rentas, ventas "
-                            + "                    WHERE rentas.idClientes=clientes.idClientes AND clientes.idClientes=ventas.idClientes"
-                            + "                    ORDER BY Fecha_R ASC;";
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas;";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto;";
                     S.mostrarreporte(modelotabla3, sql);
                     S.mostrarreporte(modelotabla5, sql2);
+                    S.ganancias(0);
                     ACCIONES.setVisible(false);
                     REPORTE_CLIENTE.setVisible(true);
-                }
-            } catch (Exception e) {
-                System.out.println("Dio cancelar");
-            }
+                //}
+            //} catch (Exception e) {
+              //  System.out.println("Dio cancelar");
+            //}
 
         } else if (venta.isSelected()) {
             elige_nomcliente1.removeAllItems();
@@ -2080,7 +2137,9 @@ public class cyber extends javax.swing.JFrame {
             }else {
                 nombre_eq = (String) modeloTabla.getValueAt(filaselec, 3);
                 idEq = (int) modeloTabla.getValueAt(filaselec, 0);
-                S.generarrenta(H_inicio(), H_fin(), idEq, idcliente(), monto(), fecha, S.idadmin());
+                int ID = Integer.parseInt(Metodos.ultimoID2());
+                ID++;
+                S.generarrenta(ID,H_inicio(), H_fin(), idEq, idcliente(), monto(), fecha, S.idadmin());
                 visitas();
             }
         }
@@ -2239,11 +2298,6 @@ public class cyber extends javax.swing.JFrame {
     private void jLabel50MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseDragged
         REPORTE_CLIENTE.setLocation(evt.getLocationOnScreen());
     }//GEN-LAST:event_jLabel50MouseDragged
-
-    private void hechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hechoActionPerformed
-        REPORTE_CLIENTE.setVisible(false);
-        ACCIONES.setVisible(true);
-    }//GEN-LAST:event_hechoActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
         String nombre;
@@ -2560,6 +2614,62 @@ public class cyber extends javax.swing.JFrame {
         seg2.setSelectedItem(df.format(seconds));
     }//GEN-LAST:event_btnHora1ActionPerformed
 
+    private void comboMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMostrarActionPerformed
+        if(comboMostrar.getSelectedIndex() == 0){
+            S.limpiartabla(modelotabla3);
+            S.limpiartabla(modelotabla5);
+            S.ganancias(0);
+            
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas order by 1;";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto order by 1;";
+                    S.mostrarreporte(modelotabla3, sql);
+                    S.mostrarreporte(modelotabla5, sql2);
+                    
+                    //ACCIONES.setVisible(false);
+                    //REPORTE_CLIENTE.setVisible(true);
+        }
+        if(comboMostrar.getSelectedIndex() == 1){
+            S.limpiartabla(modelotabla3);
+            S.limpiartabla(modelotabla5);
+            
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_R) = (WEEKOFYEAR(CURDATE())-1) order by 1;";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_V) = (WEEKOFYEAR(CURDATE())-1) order by 1";
+                    S.mostrarreporte(modelotabla3, sql);
+                    S.mostrarreporte(modelotabla5, sql2);
+                    S.ganancias(1);
+                    //ACCIONES.setVisible(false);
+                    //REPORTE_CLIENTE.setVisible(true);
+        }
+        if(comboMostrar.getSelectedIndex() == 2){
+            S.limpiartabla(modelotabla3);
+            S.limpiartabla(modelotabla5);
+            S.ganancias(2);
+            
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND MONTH(Fecha_R) = (MONTH(CURDATE())-1) order by 1";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND MONTH(Fecha_V) = (MONTH(CURDATE())-1) order by 1";
+                    S.mostrarreporte(modelotabla3, sql);
+                    S.mostrarreporte(modelotabla5, sql2);
+                    //ACCIONES.setVisible(false);
+                    //REPORTE_CLIENTE.setVisible(true);
+        }
+        if(comboMostrar.getSelectedIndex() == 3){
+            S.limpiartabla(modelotabla3);
+            S.limpiartabla(modelotabla5);
+            S.ganancias(3);
+            
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND YEAR(Fecha_R) = (YEAR(CURDATE())) order by 1";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND YEAR(Fecha_V) = (YEAR(CURDATE())) order by 1";
+                    S.mostrarreporte(modelotabla3, sql);
+                    S.mostrarreporte(modelotabla5, sql2);
+                    //ACCIONES.setVisible(false);
+                    //REPORTE_CLIENTE.setVisible(true);
+        }
+    }//GEN-LAST:event_comboMostrarActionPerformed
+
+    private void txtGanancias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGanancias1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGanancias1ActionPerformed
+
     public void limpiar_tabla2() {
         for (int i = 0; i < tabla_equipos2.getRowCount(); i++) {
             modeloTabla2.removeRow(i);
@@ -2580,13 +2690,13 @@ public class cyber extends javax.swing.JFrame {
             if (empleado.equals(Admin)) {
                 A_Empleado.setEnabled(true);
             }
-            usuario.setText("Emplead@: " + empleado);
-            titulo_agregae.setText("Agrega/Elimina Equipo  |     Empleado:" + empleado);
-            titulo_renta.setText("Renta de Equipo  |   Empleado:" + empleado);
-            titulo_venta.setText("Venta Producto   |   Empleado:" + empleado);
-            titulo_empl.setText("Empleados   |   Empleado:" + empleado);
+            usuario.setText("Administrador: " + empleado);
+            titulo_agregae.setText("Agrega/Elimina Equipo :" + empleado);
+            titulo_renta.setText("Renta de Equipo :" + empleado);
+            titulo_venta.setText("Venta Producto :" + empleado);
+            titulo_empl.setText("Empleados :" + empleado);
             titulo_reporte.setText("Reporte");
-            usuarioRR.setText("USUARIO:" + empleado);
+            //usuarioRR.setText("USUARIO:" + empleado);
         } else {
             System.out.println("ya valiste papu");
             Error.setText("Usuario o contraseña invalida");
@@ -2680,6 +2790,7 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JTextField cantidad_prod;
     public javax.swing.JRadioButton clienteexistente;
     public javax.swing.JRadioButton clientenuevo;
+    public javax.swing.JComboBox<String> comboMostrar;
     public javax.swing.JPasswordField contrasena;
     public javax.swing.JComboBox<String> elige_nomcliente;
     public javax.swing.JComboBox<String> elige_nomcliente1;
@@ -2707,7 +2818,6 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JLabel fondo_emple;
     public javax.swing.JLabel fondo_venta;
     public javax.swing.JButton guardar;
-    public javax.swing.JButton hecho;
     public javax.swing.JButton hecho1;
     public javax.swing.JComboBox<String> hora1;
     public javax.swing.JComboBox<String> hora2;
@@ -2763,6 +2873,12 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel51;
     public javax.swing.JLabel jLabel52;
     public javax.swing.JLabel jLabel53;
+    public javax.swing.JLabel jLabel54;
+    public javax.swing.JLabel jLabel55;
+    public javax.swing.JLabel jLabel56;
+    public javax.swing.JLabel jLabel57;
+    public javax.swing.JLabel jLabel58;
+    public javax.swing.JLabel jLabel59;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
@@ -2813,11 +2929,12 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JLabel titulo_reporte;
     public javax.swing.JLabel titulo_venta;
     public static javax.swing.JLabel txtConexion;
+    public static javax.swing.JTextField txtGanancias1;
+    public static javax.swing.JTextField txtGanancias2;
     public javax.swing.JTextField txtPrecio;
     public javax.swing.JLabel usuario;
     public javax.swing.JLabel usuario1;
     public javax.swing.JLabel usuario2;
-    public javax.swing.JLabel usuarioRR;
     public javax.swing.JRadioButton venta;
     // End of variables declaration//GEN-END:variables
 }

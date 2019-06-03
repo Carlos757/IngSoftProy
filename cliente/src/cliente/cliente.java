@@ -151,7 +151,7 @@ public class cliente extends javax.swing.JFrame  implements Runnable{
     public void run() {
        // System.out.print("estoy a la escucha");
         try {
-            ServerSocket servidor = new ServerSocket(9999);
+            ServerSocket servidor = new ServerSocket(9000);
            while(true){
             Socket socket = servidor.accept();
             

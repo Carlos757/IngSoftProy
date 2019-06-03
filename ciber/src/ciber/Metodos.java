@@ -1,6 +1,7 @@
 
 package ciber;
 
+import static ciber.cyber.txtGanancias1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,6 +58,32 @@ public class Metodos {
         {
 
               a = rs.getString("idVentas");
+              System.out.println(rs);
+        }
+
+        }
+
+    catch (SQLException ex)
+
+    {
+
+        JOptionPane.showMessageDialog(null, ex);
+
+    }
+        return a;
+   }
+    public static String ultimoID2(){
+        
+        String a="";
+        try
+        {
+            
+            Statement st = CC.createStatement();
+            ResultSet rs = st.executeQuery("select idRentas from rentas order by idRentas desc limit 1;");
+        while (rs.next())
+        {
+
+              a = rs.getString("idRentas");
               System.out.println(rs);
         }
 
@@ -219,11 +246,11 @@ public class Metodos {
         return id;
     }
 
-    public void generarrenta(String H_inicio, String H_fin, int ideq, int idcliente, float monto, String fecha, Object idadmin) {
+    public void generarrenta(int id,String H_inicio, String H_fin, int ideq, int idcliente, float monto, String fecha, Object idadmin) {
         try {
             System.out.println("fecha:"+fecha);
-            us = CC.prepareStatement("INSERT INTO rentas(HoraInicio,HoraFin, idEquipos, idClientes,idAdmins,Fecha_R,`Monto a pagar`)"
-                    + "VALUES('" + H_inicio + "','" + H_fin + "'," + ideq + "," + idcliente + "," + idadmin  + ",'" + fecha  + "'," + monto + ")");
+            us = CC.prepareStatement("INSERT INTO rentas(idRentas,HoraInicio,HoraFin, idEquipos, idClientes,idAdmins,Fecha_R,`Monto a pagar`)"
+                    + "VALUES("+id+",'" + H_inicio + "','" + H_fin + "'," + ideq + "," + idcliente + "," + idadmin  + ",'" + fecha  + "'," + monto + ")");
             us.executeUpdate();
             System.out.println("Renta guardada");
             
@@ -264,12 +291,12 @@ public class Metodos {
     }
     
     public  void mostrarreporte( DefaultTableModel tabla, String sql){
-        Object[] datos = new Object[5];
+        Object[] datos = new Object[6];
         try {
             us = CC.prepareStatement(sql);
             ResultSet res = us.executeQuery();
             while (res.next()) {
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 6; i++) {
                     datos[i] = res.getObject(i + 1);
                 }
                 tabla.addRow(datos);
@@ -298,6 +325,96 @@ public class Metodos {
         
         return idadmin;
     }
+    public Integer ganancias(int opcion){
+        int ganancias=0,ganancias1 = 0;
+        String sql;
+        if(opcion == 0){    
+            try{
+                sql="SELECT SUM(`Monto a pagar`) as total FROM rentas order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res = us.executeQuery();
+                while (res.next()) { 
+                    String gan = Integer.toString(res.getInt(1));
+                    cyber.txtGanancias1.setText("$ "+gan);
+                }
+                sql="SELECT SUM(Precio_final) as total FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res1 = us.executeQuery();
+                while (res1.next()) {
+                    String gan = Integer.toString(res1.getInt(1));
+                    cyber.txtGanancias2.setText("$ "+gan); 
+                }
+
+            }catch(Exception e){
+                System.out.println("Error en ganancias: "+ e);
+            }
+        }
+        if(opcion == 1){    
+            try{
+                sql="SELECT SUM(`Monto a pagar`) as total FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_R) = (WEEKOFYEAR(CURDATE())-1) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res = us.executeQuery();
+                while (res.next()) { 
+                    String gan = Integer.toString(res.getInt(1));
+                    cyber.txtGanancias1.setText("$ "+gan);
+                }
+                sql="SELECT SUM(Precio_final) as total FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_V) = (WEEKOFYEAR(CURDATE())-1) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res1 = us.executeQuery();
+                while (res1.next()) {
+                    String gan = Integer.toString(res1.getInt(1));
+                    cyber.txtGanancias2.setText("$ "+gan); 
+                }
+
+            }catch(Exception e){
+                System.out.println("Error en ganancias: "+ e);
+            }
+        }
+        if(opcion == 2){    
+           try{
+                sql="SELECT SUM(`Monto a pagar`) as total FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND MONTH(Fecha_R) = (MONTH(CURDATE())-1) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res = us.executeQuery();
+                while (res.next()) { 
+                    String gan = Integer.toString(res.getInt(1));
+                    cyber.txtGanancias1.setText("$ "+gan);
+                }
+                sql="SELECT SUM(Precio_final) as total FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND MONTH(Fecha_V) = (MONTH(CURDATE())-1) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res1 = us.executeQuery();
+                while (res1.next()) {
+                    String gan = Integer.toString(res1.getInt(1));
+                    cyber.txtGanancias2.setText("$ "+gan); 
+                }
+
+            }catch(Exception e){
+                System.out.println("Error en ganancias: "+ e);
+            }
+        }
+        if(opcion == 3){    
+            try{
+                sql="SELECT SUM(`Monto a pagar`) as total FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND YEAR(Fecha_R) = (YEAR(CURDATE())) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res = us.executeQuery();
+                while (res.next()) { 
+                    String gan = Integer.toString(res.getInt(1));
+                    cyber.txtGanancias1.setText("$ "+gan);
+                }
+                sql="SELECT SUM(Precio_final) as total FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND YEAR(Fecha_V) = (YEAR(CURDATE())) order by 1";
+                us = CC.prepareStatement(sql);
+                ResultSet res1 = us.executeQuery();
+                while (res1.next()) {
+                    String gan = Integer.toString(res1.getInt(1));
+                    cyber.txtGanancias2.setText("$ "+gan); 
+                }
+
+            }catch(Exception e){
+                System.out.println("Error en ganancias: "+ e);
+            }
+        }
+
+        return ganancias;
+    }
     
     public void elimina_equipo(int Id){
         try {  
@@ -309,6 +426,23 @@ public class Metodos {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
