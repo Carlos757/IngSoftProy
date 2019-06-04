@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -31,7 +32,7 @@ public class cyber extends javax.swing.JFrame {
     Metodos S = new Metodos();
     String empleado = "";
     String sql, idCliente, sql2;
-    String Admin = "root";
+    String Admin = "adm";   //aqui va el administrador
     int num;
     int precioHr = 10;
     int contProd = 0,contTotal = 0;
@@ -92,6 +93,13 @@ public class cyber extends javax.swing.JFrame {
         tabla_empleado.setDefaultRenderer(Object.class, ft);
         tabla_join.setDefaultRenderer(Object.class, ft);
         tabla_join2.setDefaultRenderer(Object.class, ft);
+        setIconImage (new ImageIcon(getClass().getResource("/ciber/key-circle.png")).getImage());
+        ACCIONES.setIconImage (new ImageIcon(getClass().getResource("/ciber/key-circle.png")).getImage());
+        RENTA.setIconImage (new ImageIcon(getClass().getResource("/ciber/pc disponible.png")).getImage());
+        VENTA.setIconImage (new ImageIcon(getClass().getResource("/imagenes/vender.png")).getImage());
+        REPORTE_CLIENTE.setIconImage (new ImageIcon(getClass().getResource("/ciber/user-silhouette.png")).getImage());
+        AGREGA_E.setIconImage (new ImageIcon(getClass().getResource("/ciber/key-circle.png")).getImage());
+        EMPLEADOS.setIconImage (new ImageIcon(getClass().getResource("/ciber/key-circle.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -302,7 +310,6 @@ public class cyber extends javax.swing.JFrame {
         ACCIONES.setLocation(new java.awt.Point(0, 0));
         ACCIONES.setMinimumSize(new java.awt.Dimension(440, 430));
         ACCIONES.setUndecorated(true);
-        ACCIONES.setPreferredSize(new java.awt.Dimension(440, 430));
         ACCIONES.setSize(new java.awt.Dimension(500, 500));
         ACCIONES.getContentPane().setLayout(null);
 
@@ -445,7 +452,6 @@ public class cyber extends javax.swing.JFrame {
         RENTA.setTitle("RENTA DE EQUIPO");
         RENTA.setMinimumSize(new java.awt.Dimension(640, 530));
         RENTA.setUndecorated(true);
-        RENTA.setPreferredSize(new java.awt.Dimension(640, 530));
         RENTA.setResizable(false);
         RENTA.setSize(new java.awt.Dimension(640, 530));
         RENTA.getContentPane().setLayout(null);
@@ -930,10 +936,12 @@ public class cyber extends javax.swing.JFrame {
         RENTA.getContentPane().add(jLabel16);
         jLabel16.setBounds(350, 0, 50, 23);
 
+        VENTA.setTitle("VENTA");
         VENTA.setMinimumSize(new java.awt.Dimension(620, 630));
         VENTA.setUndecorated(true);
         VENTA.setPreferredSize(new java.awt.Dimension(620, 630));
         VENTA.setResizable(false);
+        VENTA.setSize(new java.awt.Dimension(620, 630));
         VENTA.getContentPane().setLayout(null);
 
         exit6.setBackground(new java.awt.Color(255, 255, 255));
@@ -1076,9 +1084,7 @@ public class cyber extends javax.swing.JFrame {
         tabla_prod.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
         tabla_prod.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "CANTIDAD", "PRODUCTO", "PRECIO"
@@ -1226,14 +1232,20 @@ public class cyber extends javax.swing.JFrame {
         VENTA.getContentPane().add(jLabel35);
         jLabel35.setBounds(20, 40, 68, 29);
 
-        btnPagar.setText("Pagar");
+        btnPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vender.png"))); // NOI18N
+        btnPagar.setBorder(null);
+        btnPagar.setBorderPainted(false);
+        btnPagar.setContentAreaFilled(false);
+        btnPagar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPagar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vender1.png"))); // NOI18N
+        btnPagar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vender2.png"))); // NOI18N
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPagarActionPerformed(evt);
             }
         });
         VENTA.getContentPane().add(btnPagar);
-        btnPagar.setBounds(440, 460, 70, 30);
+        btnPagar.setBounds(440, 460, 80, 60);
 
         elige_nomcliente1.setFont(new java.awt.Font("Euphemia", 0, 12)); // NOI18N
         elige_nomcliente1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre cliente" }));
@@ -1267,6 +1279,7 @@ public class cyber extends javax.swing.JFrame {
 
         fondo_venta.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         fondo_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAzul.jpg"))); // NOI18N
+        fondo_venta.setDoubleBuffered(true);
         fondo_venta.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 fondo_ventaMouseDragged(evt);
@@ -1360,7 +1373,6 @@ public class cyber extends javax.swing.JFrame {
         REPORTE_CLIENTE.setTitle("REPORTE DE RENTA");
         REPORTE_CLIENTE.setMinimumSize(new java.awt.Dimension(730, 570));
         REPORTE_CLIENTE.setUndecorated(true);
-        REPORTE_CLIENTE.setPreferredSize(new java.awt.Dimension(730, 570));
         REPORTE_CLIENTE.getContentPane().setLayout(null);
 
         exit10.setBackground(new java.awt.Color(255, 255, 255));
@@ -1562,7 +1574,6 @@ public class cyber extends javax.swing.JFrame {
         EMPLEADOS.setTitle("EMPLEADOS");
         EMPLEADOS.setMinimumSize(new java.awt.Dimension(400, 490));
         EMPLEADOS.setUndecorated(true);
-        EMPLEADOS.setPreferredSize(new java.awt.Dimension(400, 490));
         EMPLEADOS.getContentPane().setLayout(null);
 
         titulo_empl.setBackground(new java.awt.Color(255, 0, 0));
@@ -2134,6 +2145,8 @@ public class cyber extends javax.swing.JFrame {
         fondo.setForeground(new java.awt.Color(255, 51, 51));
         fondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo3.jpg"))); // NOI18N
+        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fondo.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/ciber/key-circle.png"))); // NOI18N
         fondo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 fondoMouseDragged(evt);
@@ -2285,6 +2298,8 @@ public class cyber extends javax.swing.JFrame {
             //elige_prod2.setSelectedIndex(0);
             String date = fechaActual();
             Fecha_v.setText(date);
+            cantidad_prod.setText("0");
+            cantidad_prod2.setText("0");
             
 
         } else if (agregar.isSelected()) {
@@ -2776,11 +2791,13 @@ public class cyber extends javax.swing.JFrame {
     }//GEN-LAST:event_elige_prodActionPerformed
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        if(modelotabla4.getRowCount()>0){
         S.limpiartabla(modelotabla4);
         cant_final.setText("0");
         precio_final.setText("$");
         contTotal = 0;contProd = 0;
-        JOptionPane.showMessageDialog(null, "Pagado");
+        JOptionPane.showMessageDialog(null, "Pagado");}else
+            JOptionPane.showMessageDialog(null, "No hay nada que pagar");
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void A_EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_EmpleadoActionPerformed
@@ -2824,8 +2841,8 @@ public class cyber extends javax.swing.JFrame {
             S.limpiartabla(modelotabla5);
             S.ganancias(0);
             
-                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas order by 1;";
-                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto order by 1;";
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas order by 2 desc;";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto order by 4 desc;";
                     S.mostrarreporte(modelotabla3, sql);
                     S.mostrarreporte(modelotabla5, sql2);
                     
@@ -2836,8 +2853,8 @@ public class cyber extends javax.swing.JFrame {
             S.limpiartabla(modelotabla3);
             S.limpiartabla(modelotabla5);
             
-                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_R) = (WEEKOFYEAR(CURDATE())-1) order by 1;";
-                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_V) = (WEEKOFYEAR(CURDATE())-1) order by 1";
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_R) = (WEEKOFYEAR(CURDATE())-1) order by 2 desc;";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND WEEKOFYEAR(Fecha_V) = (WEEKOFYEAR(CURDATE())-1) order by 4 desc";
                     S.mostrarreporte(modelotabla3, sql);
                     S.mostrarreporte(modelotabla5, sql2);
                     S.ganancias(1);
@@ -2849,8 +2866,8 @@ public class cyber extends javax.swing.JFrame {
             S.limpiartabla(modelotabla5);
             S.ganancias(2);
             
-                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND MONTH(Fecha_R) = (MONTH(CURDATE())-1) order by 1";
-                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND MONTH(Fecha_V) = (MONTH(CURDATE())-1) order by 1";
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND MONTH(Fecha_R) = (MONTH(CURDATE())-1) order by 2 desc";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND MONTH(Fecha_V) = (MONTH(CURDATE())-1) order by 4 desc";
                     S.mostrarreporte(modelotabla3, sql);
                     S.mostrarreporte(modelotabla5, sql2);
                     //ACCIONES.setVisible(false);
@@ -2861,8 +2878,8 @@ public class cyber extends javax.swing.JFrame {
             S.limpiartabla(modelotabla5);
             S.ganancias(3);
             
-                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND YEAR(Fecha_R) = (YEAR(CURDATE())) order by 1";
-                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND YEAR(Fecha_V) = (YEAR(CURDATE())) order by 1";
+                    sql = "SELECT idRentas,Fecha_R,HoraInicio,HoraFin,idEquipos,`Monto a pagar` FROM rentas WHERE YEAR(Fecha_R) = YEAR(CURDATE()) AND YEAR(Fecha_R) = (YEAR(CURDATE())-1) order by 2 desc";
+                    sql2 = "SELECT idVentas,v.idProducto,NombreP,Fecha_V,Cantidad,Precio_final FROM ventas v INNER JOIN producto p on p.idProducto = v.idProducto WHERE YEAR(Fecha_V) = YEAR(CURDATE()) AND YEAR(Fecha_V) = (YEAR(CURDATE())-1) order by 4 desc";
                     S.mostrarreporte(modelotabla3, sql);
                     S.mostrarreporte(modelotabla5, sql2);
                     //ACCIONES.setVisible(false);
@@ -2965,7 +2982,7 @@ public class cyber extends javax.swing.JFrame {
             ACCIONES.setVisible(true);
             if (empleado.equals(Admin)) {
                 A_Empleado.setEnabled(true);
-            }
+            }else{A_Empleado.setEnabled(false);}
             usuario.setText("Administrador: " + empleado);
             titulo_agregae.setText("Agrega/Elimina Equipo :" + empleado);
             titulo_renta.setText("Renta de Equipo :" + empleado);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2019 a las 06:34:32
+-- Tiempo de generación: 05-06-2019 a las 00:00:02
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -41,8 +41,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`idAdmins`, `Usuario`, `Turno`, `Pass`) VALUES
-(1, 'adm', 'Ambos', '123'),
-(2, 'root', 'Matutino', 'hola');
+(1, 'emp', 'Ambos', 'hola'),
+(2, 'adm', 'Matutino', '123');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idClientes`, `NombreC`, `Tipo`, `Visitas`) VALUES
-(4, 'Cliente', 'C', 74);
+(4, 'Cliente', 'C', 76);
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ INSERT INTO `equipos` (`idEquipos`, `Tipo`, `Estatus`, `Nequipo`) VALUES
 (1, 'Escritorio', 'Activa', 'PC1'),
 (2, 'Escritorio', 'Espera', 'PC2'),
 (3, 'Escritorio', 'Espera', 'PC3'),
-(4, 'Escritorio', 'Espera', 'PC4');
+(4, 'Escritorio', 'Espera', 'pc4');
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,9 @@ INSERT INTO `rentas` (`idRentas`, `HoraInicio`, `HoraFin`, `idEquipos`, `idClien
 (8, '11:08:36', '12:08:37', 1, 4, 2, '2019-06-03', '10'),
 (9, '00:00:00', '01:00:00', 1, 4, 2, '2019-06-03', '10'),
 (10, '00:00:00', '01:00:00', 2, 4, 2, '2019-06-03', '15'),
-(11, '00:00:00', '01:00:00', 1, 4, 2, '2019-06-03', '10');
+(11, '00:00:00', '01:00:00', 1, 4, 2, '2019-06-03', '10'),
+(12, '10:08:46', '11:30:49', 1, 4, 2, '2019-06-04', '15'),
+(13, '11:40:48', '12:40:49', 1, 4, 2, '2019-06-04', '10');
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,13 @@ INSERT INTO `ventas` (`idVentas`, `idClientes`, `idProducto`, `idAdmins`, `Fecha
 (23, 4, 1, 2, '2019-06-03', 1, '15'),
 (24, 4, 3, 2, '2019-06-03', 1, '10'),
 (25, 4, 9, 2, '2019-06-03', 2, '8'),
-(26, 4, 10, 2, '2019-06-03', 1, '1');
+(26, 4, 10, 2, '2019-06-03', 1, '1'),
+(27, 4, 3, 2, '2019-06-04', 1, '10'),
+(28, 4, 1, 2, '2019-06-04', 1, '15'),
+(29, 4, 9, 2, '2019-06-04', 3, '12'),
+(30, 4, 10, 2, '2019-06-04', 2, '2'),
+(31, 4, 3, 2, '2019-06-04', 3, '30'),
+(32, 4, 5, 2, '2019-06-04', 1, '13');
 
 --
 -- Índices para tablas volcadas
@@ -258,13 +266,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `rentas`
 --
 ALTER TABLE `rentas`
-  MODIFY `idRentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idRentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
