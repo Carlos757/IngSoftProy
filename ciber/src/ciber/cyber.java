@@ -48,7 +48,7 @@ public class cyber extends javax.swing.JFrame {
         ACCIONES.setLocationRelativeTo(null);
         RENTA.setSize(630, 530);
         RENTA.setLocationRelativeTo(null);
-        VENTA.setSize(470, 620);
+        VENTA.setSize(620, 630);
         VENTA.setLocationRelativeTo(null);
         REPORTE_CLIENTE.setSize(730, 570);
         REPORTE_CLIENTE.setLocationRelativeTo(null);
@@ -71,20 +71,20 @@ public class cyber extends javax.swing.JFrame {
         AWTUtilities.setWindowOpaque(RENTA, false);
         AWTUtilities.setWindowOpaque(VENTA, false);
         AWTUtilities.setWindowOpaque(REPORTE_CLIENTE, false);
-        existentes.setBackground(oro());
-        tipo_e.setBackground(oro());
-        hora1.setBackground(oro());
-        hora2.setBackground(oro());
-        min1.setBackground(oro());
-        min2.setBackground(oro());
-        seg1.setBackground(oro());
-        seg2.setBackground(oro());
-        Turno.setBackground(oro());
-        agrega_prod.setBackground(oro());
-        select_equi.setBackground(oro());
-        elige_nomcliente.setBackground(oro());
-        elige_nomcliente1.setBackground(oro());
-        elige_prod.setBackground(oro());
+        //existentes.setBackground(oro());
+        //tipo_e.setBackground(oro());
+        //hora1.setBackground(oro());
+        //hora2.setBackground(oro());
+        //min1.setBackground(oro());
+        //min2.setBackground(oro());
+        //seg1.setBackground(oro());
+        //seg2.setBackground(oro());
+        //Turno.setBackground(oro());
+        //agrega_prod.setBackground(oro());
+        //select_equi.setBackground(oro());
+        //elige_nomcliente.setBackground(oro());
+        //elige_nomcliente1.setBackground(oro());
+        //elige_prod.setBackground(oro());
         CellRenderer ft = new CellRenderer(0);
         tabla_equipos.setDefaultRenderer(Object.class, ft);
         tabla_equipos2.setDefaultRenderer(Object.class, ft);
@@ -163,6 +163,7 @@ public class cyber extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         btnHora = new javax.swing.JButton();
         btnHora1 = new javax.swing.JButton();
+        btnCambiar = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
@@ -184,6 +185,14 @@ public class cyber extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_prod = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        elige_prod2 = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        cantidad_prod2 = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        precio_prod3 = new javax.swing.JLabel();
+        agrega_prod2 = new javax.swing.JButton();
         cant_final = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         precio_final = new javax.swing.JLabel();
@@ -194,6 +203,14 @@ public class cyber extends javax.swing.JFrame {
         Fecha_v = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         fondo_venta = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        elige_prod1 = new javax.swing.JComboBox<>();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        cantidad_prod1 = new javax.swing.JTextField();
+        jLabel62 = new javax.swing.JLabel();
+        precio_prod2 = new javax.swing.JLabel();
+        agrega_prod1 = new javax.swing.JButton();
         REPORTE_CLIENTE = new javax.swing.JFrame();
         exit10 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -765,12 +782,31 @@ public class cyber extends javax.swing.JFrame {
             }
         });
 
+        btnCambiar.setText("Cambiar");
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCambiar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fecha_renta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,19 +852,8 @@ public class cyber extends javax.swing.JFrame {
                                         .addComponent(seg1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnHora, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel9)))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(44, 44, 44)
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(fecha_renta, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8)))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addComponent(jLabel9))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -836,7 +861,8 @@ public class cyber extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCambiar))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(8, 8, 8)
@@ -917,7 +943,7 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         VENTA.getContentPane().add(exit6);
-        exit6.setBounds(340, 520, 60, 50);
+        exit6.setBounds(450, 540, 60, 50);
 
         exit8.setBackground(new java.awt.Color(255, 255, 255));
         exit8.setForeground(new java.awt.Color(255, 255, 255));
@@ -935,7 +961,7 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         VENTA.getContentPane().add(exit8);
-        exit8.setBounds(420, 0, 50, 30);
+        exit8.setBounds(570, 0, 50, 30);
 
         titulo_venta.setBackground(new java.awt.Color(255, 0, 0));
         titulo_venta.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
@@ -947,7 +973,7 @@ public class cyber extends javax.swing.JFrame {
         jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinta.png"))); // NOI18N
         jLabel49.setText("jLabel33");
         VENTA.getContentPane().add(jLabel49);
-        jLabel49.setBounds(-10, 0, 430, 30);
+        jLabel49.setBounds(-10, 0, 580, 30);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("FreesiaUPC", 0, 24))); // NOI18N
@@ -1033,7 +1059,7 @@ public class cyber extends javax.swing.JFrame {
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ciber/cafe1.png"))); // NOI18N
         VENTA.getContentPane().add(jLabel32);
-        jLabel32.setBounds(320, 110, 130, 120);
+        jLabel32.setBounds(20, 460, 130, 120);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "DESCRIPCIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("FreesiaUPC", 0, 24))); // NOI18N
@@ -1068,7 +1094,7 @@ public class cyber extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1078,31 +1104,112 @@ public class cyber extends javax.swing.JFrame {
         );
 
         VENTA.getContentPane().add(jPanel5);
-        jPanel5.setBounds(10, 250, 450, 160);
+        jPanel5.setBounds(10, 270, 590, 160);
 
         jLabel30.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Cant. productos:");
         VENTA.getContentPane().add(jLabel30);
-        jLabel30.setBounds(60, 430, 130, 25);
+        jLabel30.setBounds(170, 460, 130, 25);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "SERVICIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("FreesiaUPC", 0, 24))); // NOI18N
+        jPanel12.setForeground(new java.awt.Color(255, 255, 204));
+
+        elige_prod2.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
+        elige_prod2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir producto", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        elige_prod2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elige_prod2ActionPerformed(evt);
+            }
+        });
+
+        jLabel63.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel63.setText("Precio:");
+
+        jLabel64.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel64.setText("Cantidad:");
+
+        cantidad_prod2.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+
+        jLabel65.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel65.setText("Impresiones/\nCopias");
+
+        precio_prod3.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
+        precio_prod3.setText("$ ");
+
+        agrega_prod2.setFont(new java.awt.Font("Kalinga", 0, 10)); // NOI18N
+        agrega_prod2.setText("AGREGAR");
+        agrega_prod2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agrega_prod2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addGap(18, 18, 18)
+                        .addComponent(elige_prod2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel64))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precio_prod3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(cantidad_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(agrega_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(elige_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precio_prod3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel64)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cantidad_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(agrega_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        VENTA.getContentPane().add(jPanel12);
+        jPanel12.setBounds(310, 80, 288, 174);
 
         cant_final.setFont(new java.awt.Font("Euphemia", 1, 18)); // NOI18N
         cant_final.setForeground(new java.awt.Color(255, 255, 255));
         cant_final.setText("0");
         VENTA.getContentPane().add(cant_final);
-        cant_final.setBounds(190, 430, 60, 25);
+        cant_final.setBounds(300, 460, 60, 25);
 
         jLabel34.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("Total a pagar:");
         VENTA.getContentPane().add(jLabel34);
-        jLabel34.setBounds(60, 470, 100, 19);
+        jLabel34.setBounds(170, 500, 100, 19);
 
         precio_final.setFont(new java.awt.Font("Euphemia", 1, 18)); // NOI18N
         precio_final.setForeground(new java.awt.Color(255, 255, 255));
         precio_final.setText("$ ");
         VENTA.getContentPane().add(precio_final);
-        precio_final.setBounds(190, 470, 100, 25);
+        precio_final.setBounds(300, 500, 100, 25);
 
         jLabel35.setFont(new java.awt.Font("Euphemia", 1, 12)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
@@ -1117,7 +1224,7 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         VENTA.getContentPane().add(btnPagar);
-        btnPagar.setBounds(330, 450, 70, 30);
+        btnPagar.setBounds(440, 460, 70, 30);
 
         elige_nomcliente1.setFont(new java.awt.Font("Euphemia", 0, 12)); // NOI18N
         elige_nomcliente1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre cliente" }));
@@ -1133,7 +1240,7 @@ public class cyber extends javax.swing.JFrame {
         num_venta1.setForeground(new java.awt.Color(255, 255, 255));
         num_venta1.setText("Fecha: ");
         VENTA.getContentPane().add(num_venta1);
-        num_venta1.setBounds(60, 510, 80, 19);
+        num_venta1.setBounds(170, 540, 80, 19);
 
         Fecha_v.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1141,13 +1248,13 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         VENTA.getContentPane().add(Fecha_v);
-        Fecha_v.setBounds(130, 510, 130, 25);
+        Fecha_v.setBounds(240, 540, 130, 25);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("AAAA/MM/DD");
         VENTA.getContentPane().add(jLabel27);
-        jLabel27.setBounds(150, 540, 90, 20);
+        jLabel27.setBounds(260, 570, 90, 20);
 
         fondo_venta.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         fondo_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAzul.jpg"))); // NOI18N
@@ -1157,7 +1264,89 @@ public class cyber extends javax.swing.JFrame {
             }
         });
         VENTA.getContentPane().add(fondo_venta);
-        fondo_venta.setBounds(0, 0, 470, 620);
+        fondo_venta.setBounds(0, 0, 620, 630);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("FreesiaUPC", 0, 24))); // NOI18N
+        jPanel11.setForeground(new java.awt.Color(255, 255, 204));
+
+        elige_prod1.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
+        elige_prod1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir producto", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        elige_prod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elige_prod1ActionPerformed(evt);
+            }
+        });
+
+        jLabel60.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel60.setText("Precio:");
+
+        jLabel61.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel61.setText("Cantidad:");
+
+        cantidad_prod1.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
+
+        jLabel62.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel62.setText("Producto: ");
+
+        precio_prod2.setFont(new java.awt.Font("Kalinga", 0, 18)); // NOI18N
+        precio_prod2.setText("$ ");
+
+        agrega_prod1.setFont(new java.awt.Font("Kalinga", 0, 10)); // NOI18N
+        agrega_prod1.setText("AGREGAR");
+        agrega_prod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agrega_prod1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(elige_prod1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel61))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precio_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(cantidad_prod1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(agrega_prod1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(elige_prod1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precio_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel61)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cantidad_prod1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(agrega_prod1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        VENTA.getContentPane().add(jPanel11);
+        jPanel11.setBounds(10, 80, 300, 174);
 
         REPORTE_CLIENTE.setTitle("REPORTE DE RENTA");
         REPORTE_CLIENTE.setUndecorated(true);
@@ -2076,9 +2265,11 @@ public class cyber extends javax.swing.JFrame {
             VENTA.setVisible(true);
             S.llena_combobox(elige_nomcliente1);
             S.nombreproductos(elige_prod);
+            S.nombreproductos2(elige_prod2);
             S.limpiartabla(modelotabla4);
             elige_nomcliente1.setSelectedIndex(1);
             elige_prod.setSelectedIndex(0);
+            //elige_prod2.setSelectedIndex(0);
             String date = fechaActual();
             Fecha_v.setText(date);
             
@@ -2566,7 +2757,7 @@ public class cyber extends javax.swing.JFrame {
         //int idcliente, pi = Integer.parseInt(cantidad_prod.getText());
         //elige_nomcliente1.getSelectedIndex();
         String sql6 = "SELECT Precio FROM producto WHERE NombreP='" + elige_prod.getSelectedItem() + "'";
-       int  pi = S.idcliente(sql6);
+        int  pi = S.idcliente(sql6);
         precio_prod1.setText("$" + pi);
         
     }//GEN-LAST:event_elige_prodActionPerformed
@@ -2669,6 +2860,78 @@ public class cyber extends javax.swing.JFrame {
     private void txtGanancias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGanancias1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGanancias1ActionPerformed
+
+    private void elige_prod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elige_prod1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elige_prod1ActionPerformed
+
+    private void agrega_prod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agrega_prod1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agrega_prod1ActionPerformed
+
+    private void elige_prod2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elige_prod2ActionPerformed
+         String sql6 = "SELECT Precio FROM producto WHERE NombreP='" + elige_prod2.getSelectedItem() + "'";
+        int  pi = S.idcliente(sql6);
+        precio_prod3.setText("$" + pi);
+    }//GEN-LAST:event_elige_prod2ActionPerformed
+
+    private void agrega_prod2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agrega_prod2ActionPerformed
+                                                  
+        tabla_prod.setEnabled(true);
+        //S.limpiartabla(modelotabla4);
+        String user = nom_usuario.getText();
+        int idadmin, idcliente, pi, pfinal, cantidad = Integer.parseInt(cantidad_prod2.getText());
+        
+
+        String fecha, sql3, sql6, sql5, sql4;
+        fecha = Fecha_v.getText();
+        if (Fecha_v.getText().isEmpty() || cantidad_prod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "!FALTA AGREGAR DATOS!");
+        } else if (elige_nomcliente1.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "!NO HA SELECCIONADO EL CLIENTE!");
+        } else {
+            
+            sql5 = "SELECT idAdmins FROM admins WHERE Usuario='" + user + "'";
+            sql4 = "SELECT idProducto FROM producto WHERE NombreP='" + elige_prod2.getSelectedItem() + "'";
+            sql3 = "SELECT idClientes FROM clientes WHERE NombreC='" + elige_nomcliente1.getSelectedItem() + "'";
+            int idproducto = S.idcliente(sql4);
+            sql6 = "SELECT Precio FROM producto WHERE NombreP='" + elige_prod2.getSelectedItem() + "'";
+            //sql = "SELECT ventas.Cantidad,producto.NombreP,producto.Precio FROM ventas,producto WHERE "
+              //      + "ventas.idProducto = producto.idProducto AND idVentas= " + idproducto;
+
+            pi = S.idcliente(sql6);
+            idadmin = S.idcliente(sql5);
+            idcliente = S.idcliente(sql3);
+           
+            pfinal = pi * cantidad;
+            contProd = contProd + cantidad;
+            contTotal = contTotal + pfinal;
+            //sql = "SELECT ventas.Cantidad, producto.NombreP,ventas.Precio_final FROM ventas,producto where idVentas=3 AND producto.NombreP="
+              //      +elige_prod.getSelectedItem();
+             
+            precio_prod3.setText("$" + pi);
+            cant_final.setText(contProd + "");
+            precio_final.setText("$ " + contTotal);
+            S.Agregarventas(idcliente, S.idcliente(sql4), fecha, idadmin, cantidad, pfinal);
+            String a = Metodos.ultimoID();
+           
+            int b = Integer.parseInt(a);
+            sql = "SELECT Cantidad,nombreP,Precio_final FROM ventas v INNER JOIN producto p ON  v.idProducto = p.idProducto WHERE v.idVentas ="+a;
+            S.Mostrarconsultas(modelotabla4, sql);
+            
+            
+        }
+      
+    }//GEN-LAST:event_agrega_prod2ActionPerformed
+
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+        
+        String prec = txtPrecio.getText();
+        int nvoPrec = Integer.parseInt(prec);
+        precioHr = nvoPrec;
+        txtPrecio.setText(Integer.toString(precioHr));
+        
+    }//GEN-LAST:event_btnCambiarActionPerformed
 
     public void limpiar_tabla2() {
         for (int i = 0; i < tabla_equipos2.getRowCount(); i++) {
@@ -2776,9 +3039,12 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JButton accept;
     public javax.swing.JButton agrega_e;
     public javax.swing.JButton agrega_prod;
+    public javax.swing.JButton agrega_prod1;
+    public javax.swing.JButton agrega_prod2;
     public javax.swing.JRadioButton agregar;
     public javax.swing.JRadioButton alta;
     public javax.swing.JRadioButton baja;
+    public javax.swing.JButton btnCambiar;
     public javax.swing.JButton btnHora;
     public javax.swing.JButton btnHora1;
     public javax.swing.JButton btnPagar;
@@ -2788,6 +3054,8 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.ButtonGroup buttonGroup4;
     public javax.swing.JLabel cant_final;
     public javax.swing.JTextField cantidad_prod;
+    public javax.swing.JTextField cantidad_prod1;
+    public javax.swing.JTextField cantidad_prod2;
     public javax.swing.JRadioButton clienteexistente;
     public javax.swing.JRadioButton clientenuevo;
     public javax.swing.JComboBox<String> comboMostrar;
@@ -2795,6 +3063,8 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> elige_nomcliente;
     public javax.swing.JComboBox<String> elige_nomcliente1;
     public javax.swing.JComboBox<String> elige_prod;
+    public javax.swing.JComboBox<String> elige_prod1;
+    public javax.swing.JComboBox<String> elige_prod2;
     public javax.swing.JPopupMenu elimina_empl;
     public javax.swing.JMenuItem eliminar;
     public javax.swing.JLabel eq_selec;
@@ -2880,11 +3150,19 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel58;
     public javax.swing.JLabel jLabel59;
     public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel60;
+    public javax.swing.JLabel jLabel61;
+    public javax.swing.JLabel jLabel62;
+    public javax.swing.JLabel jLabel63;
+    public javax.swing.JLabel jLabel64;
+    public javax.swing.JLabel jLabel65;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel10;
+    public javax.swing.JPanel jPanel11;
+    public javax.swing.JPanel jPanel12;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
@@ -2911,6 +3189,8 @@ public class cyber extends javax.swing.JFrame {
     public javax.swing.JLabel num_venta1;
     public javax.swing.JLabel precio_final;
     public javax.swing.JLabel precio_prod1;
+    public javax.swing.JLabel precio_prod2;
+    public javax.swing.JLabel precio_prod3;
     public javax.swing.JRadioButton rentar;
     public javax.swing.JRadioButton reporte;
     public javax.swing.JComboBox<String> seg1;

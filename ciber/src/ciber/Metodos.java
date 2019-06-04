@@ -170,11 +170,29 @@ public class Metodos {
         elige_prod.setVisible(true);
        
         try{
-            sql = "SELECT NombreP FROM producto";
+            sql = "SELECT NombreP FROM producto WHERE idProducto != 9 and idProducto != 10";
             us = CC.prepareStatement(sql);
             ResultSet res = us.executeQuery();
             while (res.next()) {
                 elige_prod.addItem(res.getString("NombreP"));
+            }
+            System.out.println("Ya agregó los productos al combobox");
+            res.close();
+        
+        }catch (Exception e) {
+            System.out.println("no visualiza productos existentes: "+ e);
+        }
+    }
+    public void nombreproductos2(JComboBox<String> elige_prod2){
+        elige_prod2.removeAllItems();
+        elige_prod2.setVisible(true);
+       
+        try{
+            sql = "SELECT NombreP FROM producto WHERE idProducto = 9 or idProducto = 10";
+            us = CC.prepareStatement(sql);
+            ResultSet res = us.executeQuery();
+            while (res.next()) {
+                elige_prod2.addItem(res.getString("NombreP"));
             }
             System.out.println("Ya agregó los productos al combobox");
             res.close();
@@ -254,8 +272,8 @@ public class Metodos {
             us.executeUpdate();
             System.out.println("Renta guardada");
             
-            JOptionPane.showMessageDialog(null, "DATOS DE RENTA AGREGADOS.\nID CLIENTE: "+idcliente+
-                "\nMONTO A PAGAR: $"+monto+"\nID ADMIN: "+idadmin);
+            JOptionPane.showMessageDialog(null, "DATOS DE RENTA AGREGADOS.\n"+
+                "\nMONTO A PAGAR: $"+monto);
             
             us=CC.prepareStatement("UPDATE equipos SET Estatus='Activa' WHERE idEquipos="+ideq);
             us.executeUpdate();
@@ -426,6 +444,13 @@ public class Metodos {
         }
     }
 }
+
+
+
+
+
+
+
 
 
 
