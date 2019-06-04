@@ -4,6 +4,7 @@ package cliente;
 import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,18 +12,38 @@ import java.sql.DriverManager;
  */
 public class conexion {
         Connection con = null;
+        String ip = "",id="";
     public Connection conex (){
         try{
-        String ip = "192.168.50.64";   //Aqui va la ip de la pc con el servidor
+        //ip = "198.168.0.4";   //Aqui va la ip de la pc con el servidor
         Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://"+ip+"/ciber","root","hola");
+        con= DriverManager.getConnection("jdbc:mysql://"+ip+"/ciber","root","");
             System.out.println("Conexion establecida");
         }catch(Exception e){
             System.out.println("Error: "+e.getMessage());
+            id = JOptionPane.showInputDialog(null, "INGRESE EL ID DEL EQUIPO:", "NUMERO DE EQUIPO", 1);
+            cliente.pc = Integer.parseInt(id);
+            ip = JOptionPane.showInputDialog(null, "INGRESE EL IP DEL SERVIDOR:", "CONECTAR A SERVIDOR", 1);
+            conex();
         }
         return con;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

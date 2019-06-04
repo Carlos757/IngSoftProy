@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class cliente extends javax.swing.JFrame  implements Runnable{
 
-    final static int pc = 1;  //Aqui va el id del pc
+    public static int pc = 1;  //Aqui va el id del pc
     public static int tiempo=0;
     conexion con = new conexion();
     metodos S = new metodos();

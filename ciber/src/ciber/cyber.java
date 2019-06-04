@@ -299,8 +299,10 @@ public class cyber extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         ACCIONES.setTitle("ELEGIR UNA ACCIÓN");
+        ACCIONES.setLocation(new java.awt.Point(0, 0));
+        ACCIONES.setMinimumSize(new java.awt.Dimension(440, 430));
         ACCIONES.setUndecorated(true);
-        ACCIONES.setResizable(false);
+        ACCIONES.setPreferredSize(new java.awt.Dimension(440, 430));
         ACCIONES.setSize(new java.awt.Dimension(500, 500));
         ACCIONES.getContentPane().setLayout(null);
 
@@ -425,6 +427,8 @@ public class cyber extends javax.swing.JFrame {
         A_Empleado.setBounds(80, 280, 250, 31);
 
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinta3.png"))); // NOI18N
+        jLabel45.setFocusable(false);
+        jLabel45.setRequestFocusEnabled(false);
         ACCIONES.getContentPane().add(jLabel45);
         jLabel45.setBounds(60, 150, 310, 170);
 
@@ -439,8 +443,11 @@ public class cyber extends javax.swing.JFrame {
         fondo_accion.setBounds(0, 0, 440, 430);
 
         RENTA.setTitle("RENTA DE EQUIPO");
+        RENTA.setMinimumSize(new java.awt.Dimension(640, 530));
         RENTA.setUndecorated(true);
+        RENTA.setPreferredSize(new java.awt.Dimension(640, 530));
         RENTA.setResizable(false);
+        RENTA.setSize(new java.awt.Dimension(640, 530));
         RENTA.getContentPane().setLayout(null);
 
         exit5.setBackground(new java.awt.Color(255, 255, 255));
@@ -923,7 +930,9 @@ public class cyber extends javax.swing.JFrame {
         RENTA.getContentPane().add(jLabel16);
         jLabel16.setBounds(350, 0, 50, 23);
 
+        VENTA.setMinimumSize(new java.awt.Dimension(620, 630));
         VENTA.setUndecorated(true);
+        VENTA.setPreferredSize(new java.awt.Dimension(620, 630));
         VENTA.setResizable(false);
         VENTA.getContentPane().setLayout(null);
 
@@ -1177,11 +1186,11 @@ public class cyber extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(elige_prod2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(precio_prod3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel63, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel64)
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1349,7 +1358,9 @@ public class cyber extends javax.swing.JFrame {
         jPanel11.setBounds(10, 80, 300, 174);
 
         REPORTE_CLIENTE.setTitle("REPORTE DE RENTA");
+        REPORTE_CLIENTE.setMinimumSize(new java.awt.Dimension(730, 570));
         REPORTE_CLIENTE.setUndecorated(true);
+        REPORTE_CLIENTE.setPreferredSize(new java.awt.Dimension(730, 570));
         REPORTE_CLIENTE.getContentPane().setLayout(null);
 
         exit10.setBackground(new java.awt.Color(255, 255, 255));
@@ -1549,12 +1560,14 @@ public class cyber extends javax.swing.JFrame {
         jLabel50.setBounds(0, 0, 730, 570);
 
         EMPLEADOS.setTitle("EMPLEADOS");
+        EMPLEADOS.setMinimumSize(new java.awt.Dimension(400, 490));
         EMPLEADOS.setUndecorated(true);
+        EMPLEADOS.setPreferredSize(new java.awt.Dimension(400, 490));
         EMPLEADOS.getContentPane().setLayout(null);
 
         titulo_empl.setBackground(new java.awt.Color(255, 0, 0));
         titulo_empl.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        titulo_empl.setForeground(new java.awt.Color(255, 0, 51));
+        titulo_empl.setForeground(new java.awt.Color(255, 255, 255));
         titulo_empl.setText("ACCIÓN A REALIZAR:");
         EMPLEADOS.getContentPane().add(titulo_empl);
         titulo_empl.setBounds(0, 0, 220, 24);
@@ -1705,7 +1718,7 @@ public class cyber extends javax.swing.JFrame {
         EMPLEADOS.getContentPane().add(Actualizar);
         Actualizar.setBounds(170, 30, 70, 40);
 
-        fondo_emple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_emple.png"))); // NOI18N
+        fondo_emple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoAzul.jpg"))); // NOI18N
         fondo_emple.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 fondo_empleMouseDragged(evt);
